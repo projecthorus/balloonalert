@@ -1,0 +1,86 @@
+#
+#   Baloon-Alert Configuration File Example
+#
+
+
+
+#######################
+# FILTERING SETTINGS  #
+#######################
+[filtering]
+
+# Only act on telemetry from pico-balloons
+# These are detected based mainly on modulation type, 
+# and the presence of 'pico' or 'WSPR' in the comment field
+picoballoon_only = True
+
+# Position Filter Type
+# This can be either radius or geofence
+position_filter_type = radius
+
+#
+# Radius Filter Settings
+#
+# For a radius-based filter, we need to define a centre point,
+# and the radius of the filter, in km
+radius = 1000.0
+radius_latitude = -34.0
+radius_longitude = 138.0
+
+#
+# GeoFence Filter Settings
+#
+# For a geofence filter, a file must be provided with one lat/lon pair per line.
+# Refer geofence_example.txt for an example
+geofence_file = geofence_example.txt
+
+
+#######################
+# PREDICTION SETTINGS #
+#######################
+[predictions]
+
+# Enable running of forward flight-path predictions
+predictions_enabled = True
+
+# Only run a prediction if the altitude of the payload is above this
+prediction_min_altitude = 5000
+
+# How long to run a forward prediction for a floating balloon.
+float_duration = 72
+
+# Prediction Re-Run Time
+# Only re-run a prediction if this many hours have elapsed since
+# the last successful prediction run.
+# This helps avoid running a prediction too often.
+prediction_rerun_time = 1
+
+
+#######################
+# EMAIL NOTIFICATIONS #
+#######################
+[email]
+
+# Use email notifications
+email_enabled = True
+
+# Only resend an email at max every 6 hours.
+email_resend_time = 6
+
+# Server details. Note that usually Port 465 is used for SSL auth, and 587 is used for TLS.
+smtp_server = localhost
+smtp_port = 25
+
+# Authentication type, Valid options are: None, TLS, and SSL
+smtp_authentication = None
+
+# If using authentication, the following fields need to be populated:
+smtp_login = None
+smtp_password = None
+
+# 'Source' e-mail
+from = sonde@localhost
+
+# Destination emails. You can send to multiple addresses by separating each address with a semicolon,
+# i.e.   test@test.com;test2@test2.com
+to = someone@example.com

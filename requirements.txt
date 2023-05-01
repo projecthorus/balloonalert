@@ -1,0 +1,5 @@
+sondehub
+python-dateutil
+requests
+shapely
+pytz

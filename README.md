@@ -10,6 +10,12 @@ What this tool does:
   * Email
   * (Other methods? TBD?)
 
+
+TODO:
+* Save state?
+* Better detection of pico-balloons (maybe calculate ascent rate and look for floaters?)
+* Other notification methods?
+
 ### Contacts
 * [Mark Jessop](https://github.com/darksidelemm) - vk5qi@rfhead.net
 
@@ -27,10 +33,10 @@ $ . venv/bin/activate
 
 Install required Python dependencies:
 ```shell
-$ pip install -r requirements.txt
+(venv) $ pip install -r requirements.txt
 ```
 
 Run balloonalert:
 ```shell
-$ python -m balloonalert alert.cfg
+(venv) $ python -m balloonalert alert.cfg
 ```
